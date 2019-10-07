@@ -2,26 +2,29 @@
 
 #include "Company.h"
 #include <vector>
+#include <string>
 
-static unsigned int idDistributor = 0;
+using namespace std;
 
 class Company;
 
 class Person {
+
 private:
-	std::vector <Company> companies;
-	const char* firstName;
-	const char* middleName;
-	const char* lastName;
+	std::vector <Company*> companies;
+	string firstName;
+	string middleName;
+	string lastName;
 	unsigned int id;
 public:
-	Person(const char* firstName, const char* middleName, const char* lastName);
-	const char* getFirstName();
-	const char* getMiddleName();
-	const char* getLastName();
+	static unsigned int idDistributor;
+	Person(const string& firstName, const string& middleName, const string& lastName);
+	string& getFirstName();
+	string& getMiddleName();
+	string& getLastName();
 	const unsigned char getCompanyCount();
 	const unsigned int getID();
-	std::vector <Company>& getCompanies();
+	std::vector <Company*>& getCompanies();
 	void tryToGetJob(Company& company);
 	bool recruitApplication(Company& company);
 	void resign(Company& company);

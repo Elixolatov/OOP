@@ -1,20 +1,20 @@
 #include "Company.h"
 
-Company::Company(const char* name) 
+Company::Company(const string& name) 
 {
 	this->name = name;
 }
 
-const char* Company::getName()
+string& Company::getName()
 {
 	return this->name;
 }
 
 void Company::tryToHire(Person& person)
 {
-	if (this != nullptr && person.recruitApplication(*this) == true && this->checkPerson(person) == false) 
+	if (person.recruitApplication(*this) == true && this->checkPerson(person) == false) 
 	{
-		persons.push_back(person);
+		persons.push_back(&person);
 	}
 }
 
@@ -29,7 +29,7 @@ bool Company::jobApplication(Person& person)
 		int chance = rand() % 10 - person.getCompanyCount();
 		if (chance > 4 || persons.size()==0)
         {
-			persons.push_back(person);
+			persons.push_back(&person);
 			return true;
 		}
 		else 
@@ -39,25 +39,25 @@ bool Company::jobApplication(Person& person)
 
 Person& Company::getPersonName(const char* firstName, const char* middleName, const char* lastName) 
 {
-	auto iterator = std::find_if(persons.begin(), persons.end(), [firstName, middleName, lastName](Person& current) {
-		return (current.getFirstName() == firstName
-			&& current.getMiddleName() == middleName
-			&& current.getLastName() == lastName);
+	auto iterator = std::find_if(persons.begin(), persons.end(), [firstName, middleName, lastName](Person* current) {
+		return ((*current).getFirstName() == firstName
+			&& (*current).getMiddleName() == middleName
+			&& (*current).getLastName() == lastName);
 	} );
 	if (iterator != persons.end())
-		return* iterator;
+		return **iterator;
 }
 
 Person& Company::getPersonID(unsigned int id) 
 {
-	auto iterator = std::find_if(persons.begin(), persons.end(), [id](Person& current){
-		return current.getID() == id;
+	auto iterator = std::find_if(persons.begin(), persons.end(), [id](Person* current){
+		return (*current).getID() == id;
 	} );
 	if (iterator != persons.end())
-		return*iterator;
+		return **iterator;
 }
 
-std::vector <Person>& Company::getPersons() 
+std::vector <Person*>& Company::getPersons() 
 {
 	return persons;
 }
@@ -65,8 +65,8 @@ std::vector <Person>& Company::getPersons()
 bool Company::checkPerson(Person& person) 
 {
 	unsigned int id = person.getID();
-	auto iterator = std::find_if(persons.begin(), persons.end(), [id](Person& person) {
-		return person.getID() == id;
+	auto iterator = std::find_if(persons.begin(), persons.end(), [id](Person* person) {
+		return (*person).getID() == id;
 	});
 	if (iterator != persons.end())
 		return true;
@@ -76,18 +76,15 @@ bool Company::checkPerson(Person& person)
 
 void Company::dismiss(Person& person) 
 {
-	if (this->checkPerson(person) == true) 
-	{
 		unsigned int id = person.getID();
-		persons.erase(std::remove_if(persons.begin(), persons.end(), [id](Person& person) {
-			return person.getID() == id;
+		persons.erase(std::remove_if(persons.begin(), persons.end(), [id](Person* person) {
+			return (*person).getID() == id;
 		}));
 
-		const char* name = this->name;
-		person.getCompanies().erase(std::remove_if(person.getCompanies().begin(), person.getCompanies().end(), [name](Company& company) {
-			return company.getName() == name;
+		string& name = this->name;
+		person.getCompanies().erase(std::remove_if(person.getCompanies().begin(), person.getCompanies().end(), [name](Company* company) {
+			return (*company).getName() == name;
 		}));
-	}
 }
 
 std::ostream& operator<<(std::ostream & out, Company& company)
@@ -95,7 +92,7 @@ std::ostream& operator<<(std::ostream & out, Company& company)
 	out << company.getName() << ":\n";
 	for (auto i = company.getPersons().begin(); i != company.getPersons().end(); i++) 
 	{
-		out << "   " << i->getMiddleName() << " " << i->getFirstName() << " " << i->getLastName() << "\n";
+		out << "   " << (*i)->getMiddleName() << " " << (*i)->getFirstName() << " " << (*i)->getLastName() << "\n";
 	}
 	out << "\n";
 	return out;

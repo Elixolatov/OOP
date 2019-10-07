@@ -2,8 +2,14 @@
 #include <iostream>
 #include <ctime>
 
+unsigned int Person::idDistributor;
+
 int main() {
-	srand(time(0));
+
+	Person::idDistributor = 0;
+
+	srand(time(0));	
+
 	Company Dahl("Dahl");
 	Company Hyperion("Hyperion");
 	Company Maliwan("Maliwan");
