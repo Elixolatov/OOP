@@ -22,10 +22,10 @@ public:
 	string getLastName();
 	const unsigned char getCompanyCount();
 	const unsigned int getID();
-	std::vector <Company*>& getCompanies();
+	std::vector <Company*>&const getCompanies();
 	void tryToGetJob(Boss& boss);
 	bool recruitApplication(Company& company);
-	void resign(Company& company);
+	void resign(Boss& boss);
 protected:
 	std::vector <Company*> companies;
 	string firstName;
@@ -41,7 +41,7 @@ public:
 	void tryToHire(Person& person);
 	bool jobApplication(Person& person);
 	Company *const getCompany();
-protected:
+private:
 	Company * company;
 };
 

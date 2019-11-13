@@ -22,9 +22,9 @@ private:
 public:
 	Company(const string& name);
 	string& getName();
-	std::vector <Person*>& getPersons();
+	std::vector <Person*>&const getPersons();
 
-	Person& getPersonName(const char* firstName, const char* middleName, const char* lastName);
+	Person& getPersonName(const string& firstName, const string& middleName, const string& lastName);
 	Person& getPersonID(unsigned int id);
 	bool checkPerson(Person& person);
 

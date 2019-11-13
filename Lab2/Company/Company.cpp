@@ -10,12 +10,12 @@ string& Company::getName()
 	return this->name;
 }
 
-Person& Company::getPersonName(const char* firstName, const char* middleName, const char* lastName) 
+Person& Company::getPersonName(const string& firstName, const string& middleName, const string& lastName)
 {
-	auto iterator = std::find_if(persons.begin(), persons.end(), [firstName, middleName, lastName](Person* current) {
-		return ((*current).getFirstName() == firstName
-			&& (*current).getMiddleName() == middleName
-			&& (*current).getLastName() == lastName);
+	auto iterator = std::find_if(persons.begin(), persons.end(), [&firstName, &middleName, &lastName](Person* current) {
+		return (current->getFirstName() == firstName)
+			&& (current->getMiddleName() == middleName)
+			&& (current->getLastName() == lastName);
 	} );
 	if (iterator != persons.end())
 		return **iterator;
@@ -30,7 +30,7 @@ Person& Company::getPersonID(unsigned int id)
 		return **iterator;
 }
 
-std::vector <Person*>& Company::getPersons() 
+std::vector <Person*>&const Company::getPersons()
 {
 	return persons;
 }

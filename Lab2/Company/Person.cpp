@@ -31,7 +31,7 @@ const unsigned int Person::getID()
 		return id;
 }
 
-std::vector<Company*>& Person::getCompanies() 
+std::vector<Company*>&const Person::getCompanies()
 {
 		return companies;
 }
@@ -56,18 +56,7 @@ void Person::tryToGetJob(Boss& boss)
 	}
 }
 
-void Person::resign(Company& company) 
+void Person::resign(Boss& boss) 
 {
-		if (company.checkPerson(*this) == true) 
-		{
-			string& name = company.getName();
-			companies.erase(std::remove_if(companies.begin(), companies.end(), [name](Company* company) {
-				return (*company).getName() == name;
-			} ));
-
-			unsigned int id = this->id;
-			company.getPersons().erase(std::remove_if(company.getPersons().begin(), company.getPersons().end(), [id](Person* person) {
-				return (*person).getID() == id;
-			} ));
-		}
+	boss.dismiss(*this);
 }

@@ -35,10 +35,10 @@ int main() {
 	BossTigr->tryToHire(Kola);
 
 	BossAugusta->dismiss(Ivan);
-	Ivan.resign(*BossAugusta->getCompany());
-	Ivan.resign(*BossTigr->getCompany());
+	Ivan.resign(*BossAugusta);
+	Ivan.resign(*BossTigr);
 
-
+	BossIvan->getCompany()->getPersonName("Kola", "Andreev", "Girasimovich");
 	std::cout << *BossIvan->getCompany() << *BossAugusta->getCompany() << *BossTigr->getCompany();
 	getchar();
 	return 0;
