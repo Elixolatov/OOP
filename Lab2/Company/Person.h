@@ -17,9 +17,9 @@ public:
 	static unsigned int idDistributor;
 	Person(const string firstName, const string middleName, const string lastName);
 	Person() = default;
-	string getFirstName();
-	string getMiddleName();
-	string getLastName();
+	string& getFirstName();
+	string& getMiddleName();
+	string& getLastName();
 	const unsigned char getCompanyCount();
 	const unsigned int getID();
 	std::vector <Company*>&const getCompanies();

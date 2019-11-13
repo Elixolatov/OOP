@@ -41,12 +41,11 @@ int main() {
 	Ivan.resign(*BossAugusta);
 	Ivan.resign(*BossTigr);
 
-	BossIvan->getCompany()->getPersonName("Kola", "Andreev", "Girasimovich");
+	Dahl.getPersonName("Kola", "Andreev", "Girasimovich");
 
 	delete (Boss*)BossIvan;
 	BossIvan = nullptr;
 
-	BossIvan->tryToHire(Biba);
 
 	Boss *BossPantera = new Boss(Pantera, Dahl);
 	std::cout << Dahl << Hyperion << Maliwan;

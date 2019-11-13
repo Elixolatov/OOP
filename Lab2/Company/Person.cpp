@@ -8,15 +8,15 @@ Person::Person(const string firstName, const string middleName, const string las
 	this->id = idDistributor++;
 }
 
-string Person::getFirstName()
+string& Person::getFirstName()
 {
 		return firstName;
 }
-string Person::getMiddleName()
+string& Person::getMiddleName()
 {
 		return middleName;
 }
-string Person::getLastName()
+string& Person::getLastName()
 {
 		return lastName;
 }

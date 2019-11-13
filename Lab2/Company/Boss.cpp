@@ -17,7 +17,6 @@ Boss::~Boss() {
 
 void Boss::dismiss(Person& person)
 {
-	if (this != nullptr) {
 		if (id != person.getID()) {
 			if (company->checkPerson(person) == true) {
 				unsigned int id = person.getID();
@@ -31,22 +30,18 @@ void Boss::dismiss(Person& person)
 				}), person.getCompanies().end());
 			}
 		}
-	}
 }
 
 void Boss::tryToHire(Person& person)
 {
-	if (this != nullptr) {
 		if (id != person.getID() && (company->checkPerson(person) == false || person.recruitApplication(*company) == true))
 		{
 			company->persons.push_back(&person);
 		}
-	}
 }
 
 bool Boss::jobApplication(Person& person)
 {
-	if (this != nullptr) {
 		if ((id == person.getID()) || (company->checkPerson(person) == true))
 		{
 			return false;
@@ -62,7 +57,6 @@ bool Boss::jobApplication(Person& person)
 			else
 				return false;
 		}
-	}
 }
 
  Company *const Boss::getCompany() {
