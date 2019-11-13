@@ -2,14 +2,9 @@
 c:\users\user\downloads\lab2\company\person.h(25): warning C4227: устаревший элемент: пропуск квалификаторов для ссылки
 c:\users\user\downloads\lab2\company\company.h(25): warning C4227: устаревший элемент: пропуск квалификаторов для ссылки
 c:\users\user\downloads\lab2\company\main.cpp(11): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-  Company.cpp
-c:\users\user\downloads\lab2\company\person.h(25): warning C4227: устаревший элемент: пропуск квалификаторов для ссылки
-c:\users\user\downloads\lab2\company\company.h(25): warning C4227: устаревший элемент: пропуск квалификаторов для ссылки
-c:\users\user\downloads\lab2\company\company.cpp(33): warning C4227: устаревший элемент: пропуск квалификаторов для ссылки
   Boss.cpp
 c:\users\user\downloads\lab2\company\person.h(25): warning C4227: устаревший элемент: пропуск квалификаторов для ссылки
 c:\users\user\downloads\lab2\company\company.h(25): warning C4227: устаревший элемент: пропуск квалификаторов для ссылки
   Создание кода...
-c:\users\user\downloads\lab2\company\company.cpp(31): warning C4715: Company::getPersonID: значение возвращается не при всех путях выполнения
-c:\users\user\downloads\lab2\company\company.cpp(22): warning C4715: Company::getPersonName: значение возвращается не при всех путях выполнения
+c:\users\user\downloads\lab2\company\boss.cpp(66): warning C4715: Boss::jobApplication: значение возвращается не при всех путях выполнения
   Company.vcxproj -> C:\Users\User\Downloads\Lab2\x64\Debug\Company.exe
