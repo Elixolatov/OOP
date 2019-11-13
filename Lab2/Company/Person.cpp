@@ -1,6 +1,6 @@
 #include "Person.h"
 
-Person::Person(const string firstName, const string middleName, const string lastName)
+Person::Person(const string& firstName, const string& middleName, const string& lastName)
 {
 	this->firstName = firstName;
 	this->middleName = middleName;
@@ -8,15 +8,15 @@ Person::Person(const string firstName, const string middleName, const string las
 	this->id = idDistributor++;
 }
 
-string& Person::getFirstName()
+const string& Person::getFirstName()
 {
 		return firstName;
 }
-string& Person::getMiddleName()
+const string& Person::getMiddleName()
 {
 		return middleName;
 }
-string& Person::getLastName()
+const string& Person::getLastName()
 {
 		return lastName;
 }

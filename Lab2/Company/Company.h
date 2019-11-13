@@ -21,7 +21,7 @@ private:
 	friend std::ostream& operator<< (std::ostream &out, Company& company);
 public:
 	Company(const string& name);
-	string& getName();
+	const string& getName();
 	std::vector <Person*>&const getPersons();
 
 	Person& getPersonName(const string& firstName, const string& middleName, const string& lastName);

@@ -5,7 +5,7 @@ Company::Company(const string& name)
 	this->name = name;
 }
 
-string& Company::getName()
+const string& Company::getName()
 {
 	return this->name;
 }
