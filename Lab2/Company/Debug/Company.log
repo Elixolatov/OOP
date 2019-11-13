@@ -1,0 +1,4 @@
+﻿  Company.cpp
+c:\users\user\downloads\lab1\company\company.cpp(49): warning C4715: Company::getPersonName: значение возвращается не при всех путях выполнения
+c:\users\user\downloads\lab1\company\company.cpp(58): warning C4715: Company::getPersonID: значение возвращается не при всех путях выполнения
+  Company.vcxproj -> C:\Users\User\Downloads\Lab1\Debug\Company.exe
