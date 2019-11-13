@@ -43,7 +43,8 @@ int main() {
 
 	BossIvan->getCompany()->getPersonName("Kola", "Andreev", "Girasimovich");
 
-	delete BossIvan;
+	delete (Boss*)BossIvan;
+
 	Boss *BossPantera = new Boss(Pantera, Dahl);
 	std::cout << Dahl << Hyperion << Maliwan;
 	getchar();
