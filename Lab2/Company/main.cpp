@@ -10,6 +10,9 @@ int main() {
 
 	srand(time(0));	
 
+	Company Dahl("Dahl");
+	Company Hyperion("Hyperion");
+	Company Maliwan("Maliwan");
 
 	Employe Ivan ("Ivan", "Ivanov", "Ivanich");
 	Employe Tigr ("Tigr", "Evstratov", "Gilgamechovish");
@@ -21,9 +24,9 @@ int main() {
 
 
 
-	Boss *BossIvan = new Boss(Ivan, "Dahl");
-	Boss *BossAugusta = new Boss(Augusta, "Hyperion");
-	Boss *BossTigr = new Boss(Tigr, "Maliwan");
+	Boss *BossIvan = new Boss(Ivan, Dahl);
+	Boss *BossAugusta = new Boss(Augusta, Maliwan);
+	Boss *BossTigr = new Boss(Tigr, Hyperion);
 
 	Ivan.tryToGetJob(*BossTigr);
 	Ivan.tryToGetJob(*BossAugusta);
@@ -39,7 +42,10 @@ int main() {
 	Ivan.resign(*BossTigr);
 
 	BossIvan->getCompany()->getPersonName("Kola", "Andreev", "Girasimovich");
-	std::cout << *BossIvan->getCompany() << *BossAugusta->getCompany() << *BossTigr->getCompany();
+
+	delete BossIvan;
+	Boss *BossPantera = new Boss(Pantera, Dahl);
+	std::cout << Dahl << Hyperion << Maliwan;
 	getchar();
 	return 0;
 }

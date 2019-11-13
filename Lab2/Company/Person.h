@@ -36,7 +36,8 @@ protected:
 
 class Boss : public Person {
 public:
-	Boss(Person& person, const string& name);
+	Boss(Person& person, Company& company);
+	~Boss();
 	void dismiss(Person& person);
 	void tryToHire(Person& person);
 	bool jobApplication(Person& person);
